@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jogo da velha 3D">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Hector, Renatzin">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/print.css" media="print">
+    <title>TresDelha</title>
+</head>
+
+<body>
+
+    <main>
+        <div class="cont">
+            <div class="cubo" onmousedown="cursor()" onmouseup="grab()">
+                <div class="velha1">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="velha2">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="velha3">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+    </main>
+
+    <script>
+        function cursor() {
+            document.querySelector(".cont").style.cursor = "grabbing";
+        }
+
+        function grab() {
+            document.querySelector(".cont").style.cursor = "grab";
+        }
+    </script>
+</body>
+
+</html>
