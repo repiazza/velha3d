@@ -2,6 +2,8 @@
 
 :root {
     --rotateX: 25deg;
+    --rotateY: 30deg;
+    --rotateZ: 0deg;
 }
 
 * {
@@ -13,16 +15,21 @@
 body {
     background-color: rgb(63, 61, 61);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 100vh;
     margin: 0;
 }
 
+main {
+    width: 50%;
+    float: left;
+}
+
 div.cont {
     width: 400px;
     height: 400px;
-    transform: rotateX(var(--rotateX)) rotateY(30deg) rotateZ();
+    transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) rotateZ(var(--rotateZ));
 }
 
 div.cubo {
@@ -77,8 +84,14 @@ td {
 }
 
 div.sliders {
-    width: 100%;
+    width: 50%;
+    height: 50%;
     margin-top: 5px;
+    float: right;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+}
+
+div.sliders > input {
+    transform: rotate(90deg);
 }
