@@ -14,8 +14,8 @@
 
     <main>
         <div class="cont">
-            <div class="cubo" onmousedown="cursor()" onmouseup="grab()">
-                <div class="velha1">
+            <div class="cubo">
+                <div class="velha1 velhas">
                     <table>
                         <tbody>
                             <tr>
@@ -36,7 +36,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="velha2">
+                <div class="velha2 velhas">
                     <table>
                         <tbody>
                             <tr>
@@ -57,7 +57,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="velha3">
+                <div class="velha3 velhas">
                     <table>
                         <tbody>
                             <tr>
@@ -78,16 +78,9 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+        </div>
     </main>
 
-    <script>
-        function cursor() {
-            document.querySelector(".cont").style.cursor = "grabbing";
-        }
-
-        function grab() {
-            document.querySelector(".cont").style.cursor = "grab";
-        }
-    </script>
 </body>
 </html>
