@@ -1,21 +1,27 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
 
 :root {
     --rotateX: 25deg;
     --rotateY: 30deg;
     --rotateZ: 0deg;
+    --icones: Quicksand;
+    --inputum: 2px;
+    --inputdois: 2px;
+    --inputtres: 2px;
 }
 
 * {
     box-sizing: border-box;
     overflow: hidden;
     user-select: none;
+    border: none;
+    outline: none;
 }
 
 body {
-    background-color: rgb(63, 61, 61);
+    background-color: rgb(44, 44, 44);
     display: flex;
-    justify-content: space-between;
     align-items: center;
     height: 100vh;
     margin: 0;
@@ -24,11 +30,13 @@ body {
 main {
     width: 50%;
     float: left;
+    display: flex;
+    justify-content: center;
 }
 
 div.cont {
     width: 400px;
-    height: 400px;
+    height: 100%;
     transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) rotateZ(var(--rotateZ));
 }
 
@@ -46,18 +54,6 @@ div.velha3 {
     width: 50%;
     align-self: center;
     background-color: transparent;
-}
-
-div.velha1 {
-    border: 2px solid red;
-}
-
-div.velha2 {
-    border: 2px solid green;
-}
-
-div.velha3 {
-    border: 2px solid blue;
 }
 
 @keyframes rotateCubo {
@@ -78,20 +74,158 @@ table {
 
 td {
     border: 5px solid whitesmoke;
-    width: 40px;
-    height: 40px;
+    width: 55px;
+    height: 55px;
     cursor: pointer;
+    text-align: center;
+}
+
+td p {
+    font-size: 2.4em;
+    margin: 0;
+    padding: 0;
+    font-family: var(--icones);
+    font-weight: 700;
+    animation: .8s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
+
+@keyframes scale {
+    from {
+        scale: .2;
+    }
+
+    to {
+        scale: 1;
+    }
 }
 
 div.sliders {
     width: 50%;
-    height: 50%;
-    margin-top: 5px;
-    float: right;
+    height: 100%;
+    float: left;
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
-div.sliders > input {
-    transform: rotate(90deg);
+div.sliders > div {
+    transform: rotate(270deg);
+    width: max-content;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    justify-content: space-evenly;
 }
+
+div.sliders > div > span {
+    padding: 10px;
+    position: relative;
+}
+
+div.sliders input {
+    width: 300px;
+    height: 60px;
+    border-radius: 1rem;
+    margin: 0;
+    padding: 0;
+    width: 20rem;
+    height: 3.5rem;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: rgba(128, 128, 128, 0.411);
+    border: none;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.24);
+    position: relative;
+    cursor: pointer;
+    transition: .8s ease-in-out;
+}
+
+div.sliders input:hover {
+    background-color: rgba(128, 128, 128, 0.811);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.38);
+}
+
+div.sliders input::before {
+    content: "+";
+    font-family: var(--icones);
+    font-weight: 400;
+    font-size: 2.4em;
+    display: inline;
+    color: rgb(43, 41, 41);
+    position: absolute;
+    z-index: 9999;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition-duration: .8s;
+}
+
+div.sliders input::after {
+    content: "-";
+    font-size: 2em;
+    font-family: var(--icones);
+    display: inline;
+    font-weight: 400;
+    color: rgb(43, 41, 41);
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%) rotate(-270deg) scale(2.4, 1.6);
+    z-index: 999;
+    transition-duration: .8s;
+}
+
+div.sliders input:hover::after, div.sliders input:hover::before {
+    color: whitesmoke;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remover a aparência padrão do Webkit/Blink */
+    width: 2px; /* Altura da bolinha */
+    height: 60px; /* Largura da bolinha */
+    background-color: #6a7175;
+    animation: load 3.8s cubic-bezier(0.175, 0.885, 0.32, 1);
+    transition: .8s cubic-bezier(0.175, 0.885, 0.32, 1);
+    border-radius: 0px 10px 10px 0px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.292);
+    z-index: 888;
+    position: absolute;
+    bottom: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@keyframes load {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+input[type="range"]:hover::-webkit-slider-thumb {
+    background-color: #4b4d4e;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    height: 100%;
+}
+
+input#rotateX::-webkit-slider-thumb {
+    width: var(--inputum);
+}
+
+input#rotateY::-webkit-slider-thumb {
+    width: var(--inputdois);
+}
+
+input#rotateZ::-webkit-slider-thumb {
+    width: var(--inputtres);
+}
+/* estilo pros arrombado de firefox */
+
