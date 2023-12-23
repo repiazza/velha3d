@@ -176,7 +176,7 @@ div.sliders input:hover::after, div.sliders input:hover::before {
     color: whitesmoke;
 }
 
-input[type="range"]::-webkit-slider-thumb {
+input.input::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 8px;
     height: 60px;
@@ -184,8 +184,12 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 0px 10px 10px 0px;
     box-shadow: -407px 0 0 400px #868686;
     background-color: #868686;
-    transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1);
     z-index: 888;
+    opacity: 0;
+}
+
+input.thumb::-webkit-slider-thumb {
+    opacity: 1;
 }
 
 input[type="range"]:hover::-webkit-slider-thumb {
