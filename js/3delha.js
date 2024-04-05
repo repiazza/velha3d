@@ -113,6 +113,7 @@ function doCheckWinner() {
 
         alert(msg);
         winnerFound = true;
+        location.reload();
         return;
       }
       if (innerrow.every((square) => oArr.includes(square))) {
@@ -121,6 +122,7 @@ function doCheckWinner() {
 
         alert(msg);
         winnerFound = true;
+        location.reload();
         return;
       }
     });
@@ -156,6 +158,28 @@ document.addEventListener("DOMContentLoaded", function () {
   consoleTrace(
     "playerName=[" + playerName + "] playerName=[" + gameMode + "]s"
   );
-
-  // drawInitialBoard("boardcreate", readyHandler);
 });
+
+
+// Rotate function
+
+
+var cont = document.getElementById("cont");
+
+function change(value, x, y, z) {
+
+  switch (x + y + z) {
+    case 0:
+      cont.style.setProperty("--rotateX", value + "deg");
+      break
+    case 1:
+      cont.style.setProperty("--rotateY", value + "deg");
+      break
+    case 2:
+      cont.style.setProperty("--rotateZ", value + "deg");
+      break
+    default:
+      console.error(">_>");
+  }
+  
+}

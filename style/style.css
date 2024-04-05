@@ -31,9 +31,10 @@ main {
     justify-content: center;
 }
 
-div.cont {
+div#cont {
     width: 400px;
     height: 100%;
+    transition: .8s;
     transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) rotateZ(var(--rotateZ));
 }
 

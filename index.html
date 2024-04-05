@@ -13,7 +13,7 @@
 <body>
 
     <main>
-        <div class="cont">
+        <div id="cont">
             <div class="cubo">
                 <div class="velha1 velhas">
                     <table>
@@ -84,9 +84,9 @@
 
         <div class="sliders">
           <div>
-              <input type="range" id="rotateX" class="input">
-              <input type="range" id="rotateY" class="input">
-              <input type="range" id="rotateZ" class="input">
+              <input type="range" id="rotateX" class="input" onchange="var x = 0; var y = 0; var z = 0; change(value, x, y, z)">
+              <input type="range" id="rotateY" class="input" onchange="var x = 0; var y = 1; var z = 0; change(value, x, y, z)">
+              <input type="range" id="rotateZ" class="input" onchange="var x = 0; var y = 0; var z = 2; change(value, x, y, z)">
           </div>
         </div>
         <script src="js/input.js"></script>
