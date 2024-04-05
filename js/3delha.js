@@ -55,7 +55,7 @@ const winnerSequences = [
   [
     ["tnw", "cnw", "bnw"], // Point West
     ["tw", "cw", "bw"],
-    ["tsw", "bsw", "bsw"],
+    ["tsw", "csw", "bsw"],
     ["tn", "cn", "bn"], // Point Center
     ["tc", "cc", "bc"],
     ["tne", "cne", "bne"],
@@ -98,12 +98,14 @@ function doCheckWinner() {
     if (element.innerHTML != "") {
       if (element.childNodes[0].textContent == "X") xArr.push(element.id);
       if (element.childNodes[0].textContent == "O") oArr.push(element.id);
+      console.log(xArr)
+      console.log(oArr)
     }
   });
   var msg = "";
   winnerSequences.map((row) => {
     row.map((innerrow) => {
-      console.debug("winnerSequences innerrow=" + innerrow);
+      // console.debug("winnerSequences innerrow=" + innerrow);
 
       if (innerrow.every((square) => xArr.includes(square))) {
         msg = "VENCEDOR: Jogador PC(peça X) ";
